@@ -14,7 +14,7 @@ function sendMessage(message, outgoingPhoneNumber) {
     .then((message) => console.log(message.sid));
 }
 
-export function messageAllEmployees() {
+function messageAllEmployees() {
   const employees = [
     { name: "Tim", phoneNumber: "+14696056677" },
     { name: "Amrit", phoneNumber: "+18178881378" },
@@ -29,4 +29,4 @@ export function messageAllEmployees() {
   });
 }
 
-export function messageManager() {}
+module.exports = { sendMessage, messageAllEmployees };
