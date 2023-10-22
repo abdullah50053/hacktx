@@ -9,7 +9,10 @@ async function listenForReports() {
   console.log("watching for changes in reports collection");
   changeStream.on("change", (next) => {
     console.log("new document written");
-    sendMessage("A new report has been written.", "+14696056677");
+    sendMessage(
+      "In order to better support your team, try to incorporate some sort of team building activities at work today.",
+      "+14696056677"
+    );
   });
 }
 
