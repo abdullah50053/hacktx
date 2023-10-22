@@ -7,6 +7,7 @@ const UserIcon = props => {
   /* styles = {
       color: 'red',
       fontSize: '2rem'
+      
     } */
   // @ts-ignore
   return <IconTag {...iconProps} style={{ ...styles }} />
