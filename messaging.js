@@ -1,16 +1,20 @@
 require("dotenv").config();
-
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = require("twilio")(accountSid, authToken);
+const bodyParser = require("body-parser");
 
 const express = require("express");
 const { MessagingResponse } = require("twilio").twiml;
 
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.post("/sms", (req, res) => {
   const twiml = new MessagingResponse();
+
+  const userMessage = req.body.Body;
+  console.log(`User message: ${userMessage}`);
+
+  //TODO: We have the user message for a peer review of the chosen employee, write it to the database.
 
   twiml.message("The Robots are coming! Head for the hills!");
 
