@@ -4,12 +4,12 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require("twilio")(accountSid, authToken);
 
-function sendMessage(message) {
+function sendMessage(message, outgoingPhoneNumber) {
   client.messages
     .create({
-      body: `Hey ${message.name}, have you talked to Kelly lately? We wanted to check in to see how she was doing`,
+      body: message,
       from: "+18443871906",
-      to: message.phoneNumber,
+      to: outgoingPhoneNumber,
     })
     .then((message) => console.log(message.sid));
 }
@@ -23,6 +23,10 @@ export function messageAllEmployees() {
   ];
 
   employees.forEach((employee) => {
-    sendMessage(employee);
+    const message = `Hey ${employee.name}, have you spoken to Tim lately? We were wondering how he's doing.`;
+
+    sendMessage(message, employee.phoneNumber);
   });
 }
+
+export function messageManager() {}
