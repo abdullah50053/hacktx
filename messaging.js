@@ -13,7 +13,6 @@ app.post("/sms", async (req, res) => {
   const twiml = new MessagingResponse();
 
   const userMessage = req.body.Body;
-  console.log(`User message: ${userMessage}`);
 
   //TODO: We have the user message for a peer review of the chosen employee, write it to the database.
   const document = {
@@ -30,7 +29,9 @@ app.post("/sms", async (req, res) => {
     client.close();
   });
 
-  twiml.message("Thanks for your feedback!");
+  twiml.message(
+    "Thank you for letting me know. Remember, you can always reach out to these resources if you are ever struggling and need someone to talk to. https://www.betterhelp.com/"
+  );
 
   res.type("text/xml").send(twiml.toString());
 });
