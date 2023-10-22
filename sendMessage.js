@@ -14,13 +14,15 @@ function sendMessage(message) {
     .then((message) => console.log(message.sid));
 }
 
-const employees = [
-  { name: "Tim", phoneNumber: "+14696056677" },
-  { name: "Amrit", phoneNumber: "+18178881378" },
-  { name: "Abdullah", phoneNumber: "+15106760469" },
-  { name: "Farhan", phoneNumber: "+13462199977" },
-];
+export function messageAllEmployees() {
+  const employees = [
+    { name: "Tim", phoneNumber: "+14696056677" },
+    { name: "Amrit", phoneNumber: "+18178881378" },
+    { name: "Abdullah", phoneNumber: "+15106760469" },
+    { name: "Farhan", phoneNumber: "+13462199977" },
+  ];
 
-employees.forEach((employee) => {
-  sendMessage(employee);
-});
+  employees.forEach((employee) => {
+    sendMessage(employee);
+  });
+}

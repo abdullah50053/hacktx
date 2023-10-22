@@ -16,7 +16,7 @@ app.post("/sms", (req, res) => {
 
   //TODO: We have the user message for a peer review of the chosen employee, write it to the database.
 
-  twiml.message("The Robots are coming! Head for the hills!");
+  twiml.message("Thanks for your feedback!");
 
   res.type("text/xml").send(twiml.toString());
 });
